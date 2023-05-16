@@ -18,7 +18,7 @@ export const SectionComponents = styled.div`
 `;
 
 export const Title = styled.h2`
-  margin: 0 0 15px 0;
+  margin-bottom: 15px;
 `;
 
 export const WarningText = styled.p`

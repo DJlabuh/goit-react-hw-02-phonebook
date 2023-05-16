@@ -13,6 +13,7 @@ export const ContactsLi = styled.li`
 `;
 
 export const ContactsText = styled.p`
+  font-weight: 500;
   margin: 0;
 `;
 
