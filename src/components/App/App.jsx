@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Container, SectionComponents, Title, WarningText } from './App.styled';
 import { ContactForm } from 'components/ContactForm';
 import { Filter } from 'components/Filter';
 import { ContactList } from 'components/ContactList';
@@ -59,20 +60,24 @@ export class App extends Component {
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <>
-        <div>
-          <h2>Phonebook</h2>
+      <Container>
+        <SectionComponents>
+          <Title>Phonebook</Title>
           <ContactForm createUser={this.createUser} />
-        </div>
-        <div>
-          <h2>Contacts</h2>
+        </SectionComponents>
+        <SectionComponents>
+          <Title>Contacts</Title>
           <Filter value={filter} onChange={this.changeFilter} />
-          <ContactList
-            contacts={visibleContacts}
-            handleDeleteContact={this.deleteContact}
-          />
-        </div>
-      </>
+          {visibleContacts.length ? (
+            <ContactList
+              contacts={visibleContacts}
+              handleDeleteContact={this.deleteContact}
+            />
+          ) : (
+            <WarningText>Contact not found!</WarningText>
+          )}
+        </SectionComponents>
+      </Container>
     );
   }
 }
